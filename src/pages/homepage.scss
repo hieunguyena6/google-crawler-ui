@@ -1,0 +1,27 @@
+.container {
+  margin: 64px 128px;
+}
+
+.groupButton {
+  display: inline;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.tableTitle {
+  text-align: center;
+  margin-bottom: 24px !important;
+}
+
+.tableContainer {
+  margin-bottom: 24px;
+}
+
+.searchInput {
+  width: 50%;
+}
