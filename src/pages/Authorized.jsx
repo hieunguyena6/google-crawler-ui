@@ -5,7 +5,9 @@ import {
 } from '@mui/material';
 import { DateTime } from 'luxon'
 import { useQuery } from 'react-query';
-import useDebounceMemo from '../hooks/useDebounceMemo'
+import useDebounceMemo from '../hooks/useDebounceMemo';
+import UploadCsvModal from '../components/uploadCsvModal'
+
 import axios from '../utils/axios'
 
 import './homepage.scss';
@@ -17,6 +19,7 @@ const fetchKeywords = async (query) => {
 
 export default function HomePage() {
   const [queryText, setQueryText] = useState('');
+  const [openUploadCsvModal, setOpenUploadCsvModal] = useState(false);
   const debounceQueryText = useDebounceMemo(queryText);
 
   const keywordsQuery = useQuery(
@@ -27,6 +30,11 @@ export default function HomePage() {
     }
   );
   const { data: keywords, total } = keywordsQuery.data || {};
+
+  const onUploadCsvFileClick = useCallback(() => {
+    setOpenUploadCsvModal(true)
+  }, [setOpenUploadCsvModal])
+
   const onLogoutClick = useCallback(() => {
     localStorage.clear();
     window.location.reload();
@@ -39,7 +47,7 @@ export default function HomePage() {
   return <div className="container">
     <div className="buttonContainer">
       <div className="groupButton">
-        <Button variant="contained" style={{ marginRight: 12 }}>
+        <Button variant="contained" style={{ marginRight: 12 }} onClick={onUploadCsvFileClick}>
           Upload file
         </Button >
         <Button variant="contained" color="success" onClick={onRefreshClick}>
@@ -91,7 +99,7 @@ export default function HomePage() {
                       <TableCell align="right">{row.totalAd}</TableCell>
                       <TableCell align="right">{row.totalLink}</TableCell>
                       <TableCell align="right">{row.status}</TableCell>
-                      <TableCell align="right">{DateTime.fromISO(row.updatedAt).toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS)}</TableCell>
+                      <TableCell align="right">{DateTime.fromISO(row.updatedAt).toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)}</TableCell>
                       <TableCell align="right">
                         <a href={`${process.env.REACT_APP_SERVICE_URL}/htmlFile/${row.cacheFileName}`} target="_blank">
                           Link
@@ -106,6 +114,7 @@ export default function HomePage() {
         </TableContainer>
       </div>
     </div>
+    <UploadCsvModal open={openUploadCsvModal} setIsOpen={setOpenUploadCsvModal} />
     <Typography variant="h6">Total: {total} keywords</Typography>
-  </div>
+  </div >
 }
