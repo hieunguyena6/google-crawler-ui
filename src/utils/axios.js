@@ -15,12 +15,12 @@ axios.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.log(error);
     if (error.response.status === 401) {
       localStorage.clear();
       alert("You are not authorized");
       window.location.reload();
     }
+    return Promise.reject(error);
   }
 );
 

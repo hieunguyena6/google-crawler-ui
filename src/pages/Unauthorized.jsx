@@ -56,7 +56,7 @@ export default function SignInUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!email || !password || password.length < 4) {
+    if (!email || !password || password.length < 6) {
       enqueueSnackbar('Please fill email, password and password at least 6 charactors', {
         variant: 'error',
         autoHideDuration: 5000,
