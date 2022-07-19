@@ -79,6 +79,7 @@ export default function HomePage() {
                 <TableCell align="right">Total ads</TableCell>
                 <TableCell align="right">Total link</TableCell>
                 <TableCell align="right">Status</TableCell>
+                <TableCell align="right">Uploaded at</TableCell>
                 <TableCell align="right">Fetched at</TableCell>
                 <TableCell align="right">Preview</TableCell>
               </TableRow>
@@ -99,7 +100,8 @@ export default function HomePage() {
                       <TableCell align="right">{row.totalAd}</TableCell>
                       <TableCell align="right">{row.totalLink}</TableCell>
                       <TableCell align="right">{row.status}</TableCell>
-                      <TableCell align="right">{DateTime.fromISO(row.updatedAt).toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)}</TableCell>
+                      <TableCell align="right">{DateTime.fromISO(row.createdAt).toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)}</TableCell>
+                      <TableCell align="right">{DateTime.fromISO(row.dataFetchedAt).toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)}</TableCell>
                       <TableCell align="right">
                         <a href={`${process.env.REACT_APP_SERVICE_URL}/htmlFile/${row.cacheFileName}`} target="_blank">
                           Link
