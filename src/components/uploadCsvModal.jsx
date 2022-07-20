@@ -61,6 +61,9 @@ export default function UploadCsvModal({ open, setIsOpen }) {
           {"Upload CSV File"}
         </DialogTitle>
         <DialogContent>
+          <a className="sampleFileLink" href={`public/sample.csv`} download={true}>
+            Download sample file
+          </a>
           {
             isLoading ? <>Loading ...</> : <div style={{ border: '1px dashed', padding: '64px' }}{...getRootProps()}>
               <input {...getInputProps()} />
