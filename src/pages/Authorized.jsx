@@ -101,11 +101,13 @@ export default function HomePage() {
                       <TableCell align="right">{row.totalLink}</TableCell>
                       <TableCell align="right">{row.status}</TableCell>
                       <TableCell align="right">{DateTime.fromISO(row.createdAt).toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)}</TableCell>
-                      <TableCell align="right">{row.dataFetchedAt ? DateTime.fromISO(row.dataFetchedAt).toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS) : ''}</TableCell>
+                      <TableCell align="right">{row.dataFetchedAt && DateTime.fromISO(row.dataFetchedAt).toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)}</TableCell>
                       <TableCell align="right">
-                        <a href={`${process.env.REACT_APP_SERVICE_URL}/htmlFile/${row.cacheFileName}`} target="_blank">
-                          Link
-                        </a>
+                        {
+                          row.cacheFileName && <a href={`${process.env.REACT_APP_SERVICE_URL}/htmlFile/${row.cacheFileName}`} target="_blank">
+                            Link
+                          </a>
+                        }
                       </TableCell>
                     </TableRow>
                   ))}
