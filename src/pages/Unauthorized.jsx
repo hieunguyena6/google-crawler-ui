@@ -33,9 +33,9 @@ export default function SignInUp() {
         }
       });
       if (!isSignIn) {
-        setEmail(true);
+        setEmail('');
         setPassword('');
-        setIsSignIn('');
+        setIsSignIn(true);
       } else {
         localStorage.setItem('token', data.data.data.token);
         localStorage.setItem('user', JSON.stringify(data.data.data.user));
