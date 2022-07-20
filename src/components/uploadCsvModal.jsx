@@ -61,7 +61,7 @@ export default function UploadCsvModal({ open, setIsOpen }) {
           {"Upload CSV File"}
         </DialogTitle>
         <DialogContent>
-          <a className="sampleFileLink" href={process.env.PUBLIC_URL + `/public/sample.csv`} download={true}>
+          <a className="sampleFileLink" href={process.env.PUBLIC_URL + `/sample.csv`} download={true}>
             Download sample file
           </a>
           {
