@@ -47,14 +47,14 @@ export default function HomePage() {
   return <div className="container">
     <div className="buttonContainer">
       <div className="groupButton">
-        <Button variant="contained" style={{ marginRight: 12 }} onClick={onUploadCsvFileClick}>
+        <Button variant="contained" className="uploadFileButton" onClick={onUploadCsvFileClick}>
           Upload file
         </Button >
-        <Button variant="contained" color="success" onClick={onRefreshClick}>
+        <Button variant="contained" className="refreshButton" color="success" onClick={onRefreshClick}>
           Refresh
         </Button>
       </div>
-      <Button onClick={onLogoutClick} variant="contained" color="error">
+      <Button onClick={onLogoutClick} className="logoutButton" variant="contained" color="error">
         Logout
       </Button>
     </div>
