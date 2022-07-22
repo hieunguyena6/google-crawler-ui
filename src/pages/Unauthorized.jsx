@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useMutation } from '@tanstack/react-query';
 import { useSnackbar } from 'notistack';
-import axios from 'axios'
+import axios from '../utils/axios'
 
 export default function SignInUp() {
   const [isSignIn, setIsSignIn] = useState(true);
