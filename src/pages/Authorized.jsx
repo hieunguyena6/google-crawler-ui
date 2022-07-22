@@ -104,9 +104,13 @@ export default function HomePage() {
                       <TableCell align="right">{row.dataFetchedAt && DateTime.fromISO(row.dataFetchedAt).toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS)}</TableCell>
                       <TableCell align="right">
                         {
-                          row.cacheFileName && <a href={`${process.env.REACT_APP_SERVICE_URL}/htmlFile/${row.cacheFileName}`} target="_blank">
-                            Link
-                          </a>
+                          row.HTMLPage && <iframe
+                            title={row.keyword}
+                            src={`data:text/html;charset=utf-8,${escape(row.HTMLPage)}`}
+                            allowFullScreen
+                            className="previewIframe"
+                          >
+                          </iframe>
                         }
                       </TableCell>
                     </TableRow>
