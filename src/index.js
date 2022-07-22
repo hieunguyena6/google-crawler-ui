@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { SnackbarProvider } from "notistack";
 
 const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ root.render(
       <QueryClientProvider client={queryClient}>
         <SnackbarProvider maxSnack={3}>
           <App />
+          <ReactQueryDevtools initialIsOpen />
         </SnackbarProvider>
       </QueryClientProvider>
     </ThemeProvider>
