@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone";
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { useSnackbar } from 'notistack';
 import axios from '../utils/axios'
 
