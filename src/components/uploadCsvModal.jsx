@@ -14,7 +14,7 @@ export default function UploadCsvModal({ open, setIsOpen }) {
     const formData = new FormData();
     formData.append('file', file);
 
-    return axios.post(`${process.env.REACT_APP_SERVICE_URL}/v1/file/csv/upload`,
+    return axios.post(`file/csv/upload`,
       formData);
   }, {
     onSuccess: (data) => {

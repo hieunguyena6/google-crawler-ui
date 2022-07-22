@@ -13,7 +13,7 @@ import axios from '../utils/axios'
 import './homepage.scss';
 
 const fetchKeywords = async (query) => {
-  const res = await axios.get(`${process.env.REACT_APP_SERVICE_URL}/v1/keywords?q=${query}`);
+  const res = await axios.get(`keywords?q=${query}`);
   return res.data;
 };
 
