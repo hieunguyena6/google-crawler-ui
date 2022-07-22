@@ -33,3 +33,28 @@
 .previewIframe {
   height: 350px;
 }
+
+.uploadFileButton {
+  margin-right: 12px !important;
+}
+
+.refreshButton {
+  min-width: 128px !important;
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 16px 32px;
+  }
+  .searchInput {
+    width: 100%;
+  }
+
+  .uploadFileButton {
+    margin-bottom: 12px !important;
+  }
+
+  .logoutButton {
+    max-height: 40px !important;
+  }
+}
