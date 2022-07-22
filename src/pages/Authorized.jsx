@@ -4,7 +4,7 @@ import {
   TableBody, TextField
 } from '@mui/material';
 import { DateTime } from 'luxon'
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import useDebounceMemo from '../hooks/useDebounceMemo';
 import UploadCsvModal from '../components/uploadCsvModal'
 
